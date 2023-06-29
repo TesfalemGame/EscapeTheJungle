@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--var adiv = document.getElementById('mydiv');
+    var leftpos = 0;
+
+    function movediv(timestamp){
+    leftpos += 5;
+    adiv.style.left = leftpos + 'px';
+    requestAnimationFrame(movediv);
+    }
+
+    requestAnimationFrame(movediv);-->
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        var mov_matrix;
+        var dt1 = 0.0;
+        let animate = true;
+        function moveZdir(m, amount) { m[14] = m[14] + 0.001; }
+        function movZdirefunction()
+        { 
+            moveZdir(mov_matrix, dt1 * 0.0001);
+            if (animate == true) { requestAnimationFrame(movZdirefunction); }
+            animate = true;
+        }
+        requestAnimationFrame(movZdirefunction);
+        function stopmovZdirefunction() {
+            animate = false;
+        }
+        
+    </script>
+    <script>
+        //var mov_matrix2;
+        var dt2 = 0.0;
+        let animate2 = true;
+        function moveZdir2(m, amount) { m[14] = m[14] - 0.001; }
+        function movZdirefunctionback()
+        {
+            moveZdir2(mov_matrix, dt2 * 0.0001);
+            if (animate2 == true) { requestAnimationFrame(movZdirefunctionback); }
+            animate2 = true;
+        }
+        requestAnimationFrame(movZdirefunctionback);
+        function stopmovZdirefunction2() {
+            animate2 = false;
+        }
+
+    </script>
+</head>
+<body onload="InitDemo();">
+    <canvas id="texturedcube" width="800" height="600" style="background-image:url(sky1.jpg);background-size:800px;">Your browser does not support HTML5 
+   <vid style="height:50px;width:50px;background-color:blue" >GO</vid>
+    </canvas>
+    <br />
+    
+    <img id="crate-image" src="grass1-2.jpg" width="0" height="0"><img>
+    <script src="texturedcube1.js"></script>
+    
+    <button onmousedown="movZdirefunction()" onmouseup="stopmovZdirefunction()" style="width:100px;height:50px;">↑</button>
+    <br />
+    <br />
+    <button onmousedown="movZdirefunctionback()" onmouseup="stopmovZdirefunction2()" style="width:100px;height:50px">↓</button>
+</body>
+</html>
