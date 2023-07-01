@@ -1,4 +1,4 @@
-﻿var vertexShaderText =
+var vertexShaderText =
 [
 'precision mediump float;',
 '',
@@ -28,7 +28,7 @@ var fragmentShaderText =
 '  gl_FragColor = texture2D(sampler, fragTexCoord);',
 '}'
 ].join('\n');
-
+var GoFront = 1;
 var InitDemo = function () {
     console.log('This is working');
 
@@ -213,7 +213,7 @@ var InitDemo = function () {
         ];
     }
 
-    var proj_matrix = get_projection(40, canvas.width / canvas.height,0.01, 10);
+    var proj_matrix = get_projection(40, canvas.width / canvas.height,0.001, 10000000);
 
     mov_matrix = [1, 0, 0, 0,
                       0, 1, 0, 0,
@@ -227,7 +227,8 @@ var InitDemo = function () {
     /*==================== Rotation ====================*/
     function moveXdir(m, amount) { m[12] = m[12] + 0.001; }
     function moveYdir(m, amount) { m[13] = m[13] + 0.001; }
-    function moveZdir(m, amount) { m[14] = m[14] - 0.001; }
+    function moveZdir(m, amount) { m[14] = m[14] + 0.001; }
+    function moveZdirback(m, amount) { m[14] = m[14] - 0.001; }
     function rotateZ(m, angle) {
         var c = Math.cos(angle);
         var s = Math.sin(angle);
@@ -275,8 +276,15 @@ var InitDemo = function () {
 
     var animate = function (time) {
 
-      var dt = time - time_old;
-        
+        var dt = time - time_old;
+        if (GoFront == 2)
+        {
+            moveZdir(mov_matrix, dt * 0.0001);
+        }
+        if (GoFront == 3)
+        {
+            moveZdirback(mov_matrix, dt * 0.0001);
+        }
         //moveZdir(mov_matrix, dt * 0.0001);
         //rotateZ(mov_matrix, dt * 0.005);//time
         //rotateY(mov_matrix, dt * 0.001);//rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
