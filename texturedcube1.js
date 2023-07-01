@@ -213,7 +213,7 @@ var InitDemo = function () {
         ];
     }
 
-    var proj_matrix = get_projection(40, canvas.width / canvas.height,0.001, 10000000);
+    var proj_matrix = get_projection(40, canvas.width / canvas.height,0.01, 10);
 
     mov_matrix = [1, 0, 0, 0,
                       0, 1, 0, 0,
