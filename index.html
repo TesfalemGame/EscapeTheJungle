@@ -6,15 +6,16 @@
 </head>
 <body onload="InitDemo();">
     <canvas id="texturedcube" width="800" height="600" style="background-image:url(sky1.jpg);background-size:800px;">Your browser does not support HTML5 
-   <vid style="height:50px;width:50px;background-color:blue" >GO</vid>
+   <vid style="height:50px;width:50px;background-color:blue" ></vid>
     </canvas>
     <br />
     
     <img id="crate-image" src="grass2.jpg" width="0" height="0"><img>
     <script src="texturedcube1.js"></script>
-    <button onmousedown="GoFront = 2;" onmouseup="GoFront = 1;" style="width:100px;height:50px;">↑</button>
+    <button onclick="GoFront = 2;" style="width:100px;height:50px;position:absolute;left:200px;top:575px; background-image:url(gofronticon.jpg)"></button>
     <br />
+    <button onclick="GoFront = 1;" style="width:100px;height:50px;position:absolute;left:300px;top:575px; background-image:url(stopicon.jpg)"></button>
     <br />
-    <button onmousedown="GoFront = 3;" onmouseup="GoFront = 1;" style="width:100px;height:50px">↓</button>
+    <button onclick="GoFront = 3;" style="width:100px;height:50px;position:absolute;left:400px;top:575px; background-image:url(gobackicon.jpg)"></button>
 </body>
 </html>
